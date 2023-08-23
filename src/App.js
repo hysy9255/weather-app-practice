@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import WeatherBox from "./components/WeatherBox";
+import WeatherButton from "./components/WeatherButton";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [weather, setWeather] = useState(null);
+  const [city, setCity] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="container">
+        <WeatherBox city={city}></WeatherBox>
+        <br></br>
+        <WeatherButton setCity={setCity}></WeatherButton>
+      </div>
     </div>
   );
 }
